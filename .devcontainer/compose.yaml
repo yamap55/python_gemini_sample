@@ -8,7 +8,7 @@ services:
         WORKDIR: /project
     volumes:
       - ..:/project
-    image: python_repository_simple-image
-    container_name: python_repository_simple-container
+    image: python_gemini_sample-image
+    container_name: python_gemini_sample-container
     tty: true
     env_file: ../.env # shellスクリプト内でも環境変数として使用するため

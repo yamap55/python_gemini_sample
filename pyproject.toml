@@ -1,7 +1,7 @@
 [project]
-name = "python_repository_simple"
+name = "python_gemini_sample"
 version = "0.0.0"
-description = "python_repository_simple"
+description = "python_gemini_sample"
 authors = [
     { name = "yamap55", email = "1785817+yamap55@users.noreply.github.com" },
 ]
@@ -9,7 +9,9 @@ license = { file = "LICENSE" }
 readme = "README.md"
 
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "google-cloud-aiplatform>=1.90.0",
+]
 
 [dependency-groups]
 dev = ["ipykernel>=6.29.5", "pytest>=8.3.4", "pytest-cov>=6.0.0"]
@@ -22,7 +24,7 @@ build-backend = "hatchling.build"
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/python_repository_simple"]
+packages = ["src/python_gemini_sample"]
 
 [tool.uv]
 managed = true
