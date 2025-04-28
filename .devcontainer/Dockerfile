@@ -34,9 +34,11 @@ RUN wget --progress=dot:giga https://raw.githubusercontent.com/git/git/master/co
 
 # Configure apt and install packages
 RUN rm -rf /var/lib/apt/lists/* \
+    && echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
+    && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add - \
     && apt-get update \
     && apt-get upgrade -y \
-    && apt-get -y --no-install-recommends install sudo vim tzdata less jq \
+    && apt-get -y --no-install-recommends install sudo vim tzdata less jq google-cloud-sdk \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
